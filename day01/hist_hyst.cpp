@@ -29,7 +29,7 @@ int main() {
     std::cout << "Total distance: " << std::accumulate(dists.begin(), dists.end(), 0) << "\n";
 
     // Part Two
-    std::vector<int> count(col2.back() ,0);
+    std::vector<int> count(col2.back(), 0);
     for (int i = 0; i < col2.size(); ++i)
         count[col2[i]]++;
 
