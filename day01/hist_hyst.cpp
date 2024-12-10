@@ -18,6 +18,7 @@ int main() {
         col2.push_back(v2);
     }
 
+    // Part One
     std::sort(col1.begin(), col1.end());
     std::sort(col2.begin(), col2.end());
 
@@ -25,5 +26,15 @@ int main() {
     for (int i = 0; i < col1.size(); ++i)
         dists.push_back(std::abs(col1[i] - col2[i]));
 
-    std::cout << std::accumulate(dists.begin(), dists.end(), 0) << "\n";
+    std::cout << "Total distance: " << std::accumulate(dists.begin(), dists.end(), 0) << "\n";
+
+    // Part Two
+    std::vector<int> count(col2.back() ,0);
+    for (int i = 0; i < col2.size(); ++i)
+        count[col2[i]]++;
+
+    int sim_score = 0;
+    for (auto i : col1)
+        sim_score += i * count[i];
+    std::cout << "Similarity: " << sim_score << "\n";
 }
